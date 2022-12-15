@@ -19,5 +19,5 @@ app.listen(PORT, () => {
     db();
 });
 
-module.exports = app
+module.exports = app;
 

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const MONGO_URL = 'mongodb://localhost/autenticacionLocalYT';
+const MONGO_URL = 'mongodb://127.0.0.1:27017/autenticacionLocalYT';
 
 const db = async () => {
     mongoose.set("strictQuery", false);
@@ -9,4 +9,4 @@ const db = async () => {
     .catch( error => console.log(error));
 }
 
-module.exports = db
+module.exports = db;
