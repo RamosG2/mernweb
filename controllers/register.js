@@ -3,7 +3,6 @@ const Usuario = require("../model/usuario");
 
 const register = async (req, res) => {
   const { nombre, correo, contrasena } = req.body;
-  console.log("register");
   Usuario.findOne({ correo }).then((usuario) => {
     if (usuario) {
       return res.json({ mensaje: "Correo en uso" });
@@ -11,7 +10,9 @@ const register = async (req, res) => {
       return res.json({ mensaje: "Verifica los datos!" });
     } else {
       bcrypt.hash(contrasena, 10, (error, contrasenaHasheada) => {
-        if (error) return res.json({ error });
+        if (error) {
+              return res.json({ error });
+        }
         else {
           const nuevoUsuario = new Usuario({
             nombre,
@@ -23,7 +24,7 @@ const register = async (req, res) => {
             .then((usuario) => {
               return res.json({ mensaje: "usuario creado" });
             })
-            .catch((error) => console.log("Register nuevo usuario" + error));
+            .catch((error) => console.log("Error usuario " +" " + error));
         }
       });
     }

@@ -5,5 +5,5 @@ const getUserById = require ("./getUserById");
 module.exports = {
     register,
     login,
-    getUserById
+    getUserById,
 };
